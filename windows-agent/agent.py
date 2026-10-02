@@ -155,6 +155,7 @@ def execute(c):
     if t=='CLOSE_TAB':ps("(New-Object -ComObject WScript.Shell).SendKeys('^w')");return 'Closed the current browser tab.'
     if t=='CLOSE_WINDOW':ps("(New-Object -ComObject WScript.Shell).SendKeys('%{F4}')");return 'Closed the active window.'
     if t=='SEARCH_WEB':os.startfile('https://www.google.com/search?q='+urllib.parse.quote_plus(p.get('query','')));return f"Searching Google for {p.get('query')}."
+    if t=='SEARCH_YOUTUBE':os.startfile('https://www.youtube.com/results?search_query='+urllib.parse.quote_plus(p.get('query','')));return f"Searching YouTube for {p.get('query')}."
     if t=='PLAY_YOUTUBE':return play_youtube(p.get('query',''))
     if t=='MEDIA_TOGGLE':media_key('MEDIA_TOGGLE');return 'Toggled play/pause.'
     if t=='MEDIA_NEXT':media_key('MEDIA_NEXT');return 'Next track.'
